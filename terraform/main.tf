@@ -16,7 +16,7 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_security_group" "web_sg" {
-  name        = "web-sg"
+  name        = "web-sg-${random_id.suffix.hex}"
   description = "Allow HTTP and SSH"
 
   ingress {
