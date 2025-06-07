@@ -1,0 +1,29 @@
+# Terraform state files
+*.tfstate
+*.tfstate.backup
+*.terraform.lock.hcl
+
+
+# SSH private keys
+*.pem
+
+# Ansible inventory with hardcoded IPs
+terraform/hosts
+instance_ip.txt
+
+# Python cache
+__pycache__/
+
+# Terraform directories
+.terraform/
+
+# Output or temp files
+*.log
+terraform.tfvars
+
+# OS or editor-specific
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
