@@ -1,11 +1,11 @@
 provider "aws" {
-  region = "us-east-1"  # or your configured region
+  region = "us-east-1" # or your configured region
 }
 
 resource "aws_instance" "web" {
-  ami           = "ami-0a7d80731ae1b2435"    # Ubuntu Server 22.04 LTS (HVM), SSD Volume Type
-  instance_type = "t2.micro"
-  key_name      = var.key_name
+  ami                         = "ami-0a7d80731ae1b2435" # Ubuntu Server 22.04 LTS (HVM), SSD Volume Type
+  instance_type               = "t2.micro"
+  key_name                    = var.key_name
   associate_public_ip_address = true
 
   vpc_security_group_ids = [aws_security_group.web_sg.id]
@@ -24,7 +24,7 @@ resource "aws_security_group" "web_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # replace with your IP
+    cidr_blocks = ["0.0.0.0/0"] # replace with your IP
   }
 
   ingress {
