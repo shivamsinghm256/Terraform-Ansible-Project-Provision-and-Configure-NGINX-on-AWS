@@ -57,6 +57,7 @@ jobs:
       - name: Add EC2 host key to known_hosts
         working-directory: terraform
         run: |
+          mkdir -p ~/.ssh
           IP=$(terraform output -raw public_ip)  # Get the IP from the terraform output (assuming terraform outputs 'public_ip')
           echo "Adding $IP to known_hosts"
           ssh-keyscan -H $IP >> ~/.ssh/known_hosts
