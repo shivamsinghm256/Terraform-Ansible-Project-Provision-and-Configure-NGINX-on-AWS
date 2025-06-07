@@ -54,6 +54,12 @@ jobs:
           echo "${{ secrets.PEM_PRIVATE_KEY }}" > terraform/key.pem
           chmod 400 terraform/key.pem
 
+      - name: Add EC2 host key to known_hosts
+        run: |
+          IP=$(terraform output -raw public_ip)  # Get the IP from the terraform output (assuming terraform outputs 'public_ip')
+          echo "Adding $IP to known_hosts"
+          ssh-keyscan -H $IP >> ~/.ssh/known_hosts
+
       - name: Run Ansible Playbook
         run: |
           ansible-playbook -i terraform/hosts ansible/setup-nginx.yml --private-key terraform/key.pem -u ubuntu
