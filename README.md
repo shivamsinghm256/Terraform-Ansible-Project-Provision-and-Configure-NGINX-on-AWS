@@ -18,16 +18,24 @@ This project provisions an AWS EC2 instance using **Terraform**, configures it w
 ## 📁 Project Structure
 ```
 terraform-ansible-project/
-├── generate_inventory.sh        # Script to fetch IP from Terraform and generate Ansible inventory
+│
 ├── terraform/
-│   ├── main.tf                  # Terraform configuration
-│   ├── variables.tf             # Terraform input variables
-│   ├── outputs.tf               # Terraform output definitions
-│   ├── instance_ip.txt          # Instance IP stored from Terraform output
-│   └── hosts                    # Generated Ansible inventory
+│   ├── main.tf                   # Terraform config: infrastructure definition
+│   ├── variables.tf              # Terraform input variables
+│   ├── outputs.tf                # Terraform output values (e.g., instance IP)
+│   ├── hosts                     # Ansible dynamic inventory (generated)
+│
+├── generate_inventory.sh         # Script to create Ansible inventory from Terraform output
+│
 ├── ansible/
-│   └── setup-nginx.yml          # Ansible playbook to install and configure NGINX
-├── README.md                    # Project documentation
+│   └── setup-nginx.yml           # Ansible playbook to configure EC2 (e.g., install NGINX)
+│
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml             # GitHub Actions workflow to run Terraform & Ansible
+│
+├── .gitignore                    # Ignore state files, private keys, generated files, etc.
+└── README.md                     # Project documentation
 ```
 ---
 
