@@ -55,6 +55,7 @@ jobs:
           chmod 400 terraform/key.pem
 
       - name: Add EC2 host key to known_hosts
+        working-directory: terraform
         run: |
           IP=$(terraform output -raw public_ip)  # Get the IP from the terraform output (assuming terraform outputs 'public_ip')
           echo "Adding $IP to known_hosts"
