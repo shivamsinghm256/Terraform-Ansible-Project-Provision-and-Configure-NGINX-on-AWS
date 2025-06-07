@@ -55,6 +55,10 @@ resource "aws_security_group" "web_sg" {
   }
 }
 
+resource "random_id" "suffix" {
+  byte_length = 4
+}
+
 output "instance_ip" {
   value = aws_instance.web.public_ip
 }
