@@ -69,6 +69,6 @@ jobs:
       - name: Clean up SSH Key
         run: rm -f terraform/key.pem
         
-      - name: Clean up SSH Key
+      - name: Clean up infrastructure
         working-directory: terraform
         run: terraform destroy
