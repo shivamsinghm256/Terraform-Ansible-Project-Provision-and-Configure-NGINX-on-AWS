@@ -20,7 +20,7 @@ resource "aws_security_group" "web_sg" {
   description = "Allow HTTP and SSH"
 
   ingress {
-    description = "SSH from my IP"
+    description = "SSH from any IP"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
