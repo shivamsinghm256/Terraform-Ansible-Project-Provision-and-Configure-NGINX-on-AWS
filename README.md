@@ -61,8 +61,10 @@ sh generate_inventory.sh
 ansible-playbook -i ../terraform/hosts ansible/setup-nginx.yml --key-file /Path/to/your/KeyPair
 ```
 ### 🌐 Access Your App
-Once deployed, visit:
-```http://<EC2_PUBLIC_IP>```
+Once deployed, visit: ```http://<EC2_PUBLIC_IP>``` </br>
+You should see the page shown below.
+![image](https://github.com/user-attachments/assets/241c361b-5e29-4fb7-937d-c3731159be6a)
+
 
 ### Clean Up
 
